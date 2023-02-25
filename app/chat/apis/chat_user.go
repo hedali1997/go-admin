@@ -22,6 +22,12 @@ type ChatUser struct {
 // @Summary 获取前台用户列表
 // @Description 获取前台用户列表
 // @Tags 前台用户
+// @Param nickname query string false "昵称"
+// @Param username query string false "登录账号"
+// @Param phone query string false "手机号"
+// @Param school query string false "学校"
+// @Param education query string false "学历"
+// @Param major query string false "专业"
 // @Param pageSize query int false "页条数"
 // @Param pageIndex query int false "页码"
 // @Success 200 {object} response.Response{data=response.Page{list=[]models.ChatUser}} "{"code": 200, "data": [...]}"

@@ -10,6 +10,12 @@ import (
 
 type ChatUserGetPageReq struct {
 	dto.Pagination `search:"-"`
+	Nickname       string `form:"nickname"  search:"type:contains;column:nickname;table:chat_user" comment:"昵称"`
+	Username       string `form:"username"  search:"type:contains;column:username;table:chat_user" comment:"登录账号"`
+	Phone          string `form:"phone"  search:"type:exact;column:phone;table:chat_user" comment:"手机号"`
+	School         string `form:"school"  search:"type:contains;column:school;table:chat_user" comment:"学校"`
+	Education      string `form:"education"  search:"type:exact;column:education;table:chat_user" comment:"学历"`
+	Major          string `form:"major"  search:"type:contains;column:major;table:chat_user" comment:"专业"`
 	ChatUserOrder
 }
 
@@ -47,11 +53,11 @@ type ChatUserInsertReq struct {
 	Password      string    `json:"password" comment:"密码"`
 	Avatar        string    `json:"avatar" comment:"头像"`
 	Phone         string    `json:"phone" comment:"手机号"`
-	Sex           string    `json:"sex" comment:"性别：1男2女3未知"`
+	Sex           string    `json:"sex" comment:"性别"`
 	Birthday      string    `json:"birthday" comment:"生日"`
 	School        string    `json:"school" comment:"学校"`
 	Signature     string    `json:"signature" comment:"个性签名"`
-	Education     string    `json:"education" comment:"学历：1无2小学3初中4高中5专科6本科7硕士8博士9博士后"`
+	Education     string    `json:"education" comment:"学历"`
 	Major         string    `json:"major" comment:"专业"`
 	LastLoginTime time.Time `json:"lastLoginTime" comment:""`
 	common.ControlBy
@@ -89,11 +95,11 @@ type ChatUserUpdateReq struct {
 	Password      string    `json:"password" comment:"密码"`
 	Avatar        string    `json:"avatar" comment:"头像"`
 	Phone         string    `json:"phone" comment:"手机号"`
-	Sex           string    `json:"sex" comment:"性别：1男2女3未知"`
+	Sex           string    `json:"sex" comment:"性别"`
 	Birthday      string    `json:"birthday" comment:"生日"`
 	School        string    `json:"school" comment:"学校"`
 	Signature     string    `json:"signature" comment:"个性签名"`
-	Education     string    `json:"education" comment:"学历：1无2小学3初中4高中5专科6本科7硕士8博士9博士后"`
+	Education     string    `json:"education" comment:"学历"`
 	Major         string    `json:"major" comment:"专业"`
 	LastLoginTime time.Time `json:"lastLoginTime" comment:""`
 	common.ControlBy
